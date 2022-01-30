@@ -20,7 +20,9 @@ public class Player : MonoBehaviour
     float moveY;
     Vector2 input;
 
-    
+    public AudioClip[] footsteps;
+
+    AudioSource audioSource;
 
     void Awake()
     {
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour
         PlayerObject = gameObject;
         animController = GetComponent<Animator>();
         srender = GetComponent<SpriteRenderer>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -59,6 +63,9 @@ public class Player : MonoBehaviour
         playerRigidBody2D.velocity = (input * moveSpeed * Time.fixedDeltaTime);
     }
 
-    
+    public void PlayFootsteps()
+    {
+        audioSource.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);   
+    }
 }
 
