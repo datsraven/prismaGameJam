@@ -29,11 +29,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 0
-    - _BlueScaleFactor: 0
+    - _BlueScaleFactor: 1
     - _EnableExternalAlpha: 0
     - _GrayScaleFactor: 0
-    - _GreenScaleFactor: 0
-    - _RedScaleFactor: 0
+    - _GreenScaleFactor: 1
+    - _RedScaleFactor: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

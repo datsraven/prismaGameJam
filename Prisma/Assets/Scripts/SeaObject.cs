@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SeaObject : Interactable
 {
-    public override void OnActivated() 
+    public override void Activate() 
     {
+        base.Activate();
         print("I am the sea");
     }
 }

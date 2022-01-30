@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
+    public UnityEvent OnActivate;
     void OnMouseDown()
     {
         Debug.Log("Hello");
-        OnActivated();
+        Activate();
     }
 
-    public virtual void OnActivated()
+    public virtual void Activate()
     {
+        OnActivate.Invoke();
         // To be implemented
     }
 
