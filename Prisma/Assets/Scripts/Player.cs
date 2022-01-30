@@ -11,42 +11,34 @@ public class Player : MonoBehaviour
     private Rigidbody2D playerRigidBody2D;
     private Vector3 moveDir;
 
+    float moveX;
+    float moveY;
+    Vector2 input;
+
     void Awake()
     {
         playerRigidBody2D = GetComponent<Rigidbody2D>();
+        moveX = 0.0f;
+        moveY = 0.0f;
     }
 
     void Update()
     {
-        float moveX = 0f;
-        float moveY = 0f;
+        moveX = Input.GetAxis("Horizontal");
+        moveY = Input.GetAxis("Vertical");
 
-        if (Input.GetKey(KeyCode.W))
+        if (Slideshow.bPlaying)
         {
-            moveY = +1f;
+            moveX = moveY = 0.0f;
         }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveY = -1f;
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveX = -1f;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveX = +1f;
-        }
-
-        moveDir = new Vector3(moveX, moveY).normalized;
+        input = new Vector2(moveX, moveY);
+        input = input.normalized * Mathf.Clamp01(input.magnitude); 
     }
 
     void FixedUpdate()
     {
-        playerRigidBody2D.velocity = moveDir * moveSpeed;
+        playerRigidBody2D.velocity = (input * moveSpeed * Time.fixedDeltaTime);
     }
 
     
