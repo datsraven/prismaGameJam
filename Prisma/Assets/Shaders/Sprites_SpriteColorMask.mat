@@ -29,7 +29,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PixelSnap: 0
-    - _BlueScaleFactor: 0.7000014
+    - _BlueScaleFactor: 1
     - _EnableExternalAlpha: 0
     - _GrayScaleFactor: 0
     - _GreenScaleFactor: 1
