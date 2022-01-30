@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D playerRigidBody2D;
     private Vector3 moveDir;
 
+    public static GameObject PlayerObject;
+
     float moveX;
     float moveY;
     Vector2 input;
@@ -20,6 +22,8 @@ public class Player : MonoBehaviour
         playerRigidBody2D = GetComponent<Rigidbody2D>();
         moveX = 0.0f;
         moveY = 0.0f;
+
+        PlayerObject = gameObject;
     }
 
     void Update()

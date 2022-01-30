@@ -10,6 +10,11 @@ public class MainMenuManager : MonoBehaviour
 
     public GameObject CreditsPanel;
 
+    void Awake()
+    {
+        CreditsPanel.SetActive(false);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("Gameplay");
