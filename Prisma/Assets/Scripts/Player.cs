@@ -13,9 +13,14 @@ public class Player : MonoBehaviour
 
     public static GameObject PlayerObject;
 
+    private Animator animController;
+    SpriteRenderer srender;
+
     float moveX;
     float moveY;
     Vector2 input;
+
+    
 
     void Awake()
     {
@@ -24,6 +29,8 @@ public class Player : MonoBehaviour
         moveY = 0.0f;
 
         PlayerObject = gameObject;
+        animController = GetComponent<Animator>();
+        srender = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -37,7 +44,14 @@ public class Player : MonoBehaviour
         }
 
         input = new Vector2(moveX, moveY);
-        input = input.normalized * Mathf.Clamp01(input.magnitude); 
+        input = input.normalized * Mathf.Clamp01(input.magnitude);
+        
+        animController.SetFloat("HorizontalVelocity", moveX);
+        animController.SetFloat("VerticalVelocity", moveY);
+
+        srender.flipX = (moveX < 0.0f);
+        
+        
     }
 
     void FixedUpdate()
